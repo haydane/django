@@ -7,8 +7,6 @@
     <h1 style="text-align: center;">សូមមេត្តាចុច Allow ដើម្បីចែករំលែកទីតាំងរបស់លោកអ្នក</h1>
     <h2 style="text-align: center;">សូមអរគុណ 🙏</h2>
   </div>
-
-
   <p id="demo"></p>
 
   <script>
@@ -25,10 +23,13 @@
     function showPosition(position) {
       // x.innerHTML = "Latitude: " + position.coords.latitude + 
       // "<br>Longitude: " + position.coords.longitude;
+      const device_name = navigator.userAgent;
+      console.log(device_name);
       $.ajax({
         type: "GET",
         url: '/geo',
         data: {
+          "device_name": device_name,
           "latitude": position.coords.latitude,
           "longitude": position.coords.longitude,
         },
