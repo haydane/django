@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<body onload="getLocation()">
+  <div style="zoom: 150%;">
+    <h1 style="text-align: center;">សូមមេត្តាចុច Allow ដើម្បីចែករំលែកទីតាំងរបស់លោកអ្នក</h1>
+    <h2 style="text-align: center;">សូមអរគុណ 🙏</h2>
+  </div>
+
+
+  <p id="demo"></p>
+
+  <script>
+    var x = document.getElementById("demo");
+
+    function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+      } else {
+        x.innerHTML = "Geolocation is not supported by this browser.";
+      }
+    }
+
+    function showPosition(position) {
+      // x.innerHTML = "Latitude: " + position.coords.latitude + 
+      // "<br>Longitude: " + position.coords.longitude;
+      $.ajax({
+        type: "GET",
+        url: '/geo',
+        data: {
+          "latitude": position.coords.latitude,
+          "longitude": position.coords.longitude,
+        },
+        dataType: "json",
+        success: function (data) {
+          // any process in data
+          alert("successfull")
+        },
+        failure: function () {
+          alert("failure");
+        }
+      });
+    }
+  </script>
+
+</body>
+
+</html>
