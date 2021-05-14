@@ -8,8 +8,8 @@ class Politic(models.Model):
         return self.politics
 
 class Economic(models.Model):
-    economics = models.TextField('e', blank=True)
-    description = models.TextField('remarks')
+    economics = models.TextField('e')
+    description = models.TextField('remarks',blank=True)
     def __str__(self):
         return self.economics
 
