@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body style="padding: 30px">
+
+  {% comment %} PEST {% endcomment %}
+    <div class="row" style="margin-top: 30px">
+      <h4 style="margin-left: 10px">
+        PEST analysis (political, economic, socio-cultural and technological)
+        describes a framework of macro-environmental factors used in the
+        environmental scanning ...
+      </h4>
+
+      {% comment %} Politic {% endcomment %}
+      <div class="col-md-3">
+        <div class="card" style="width: 25rem">
+          <div class="card-body">
+            <h5 class="card-title">Polities</h5>
+            <p class="card-text">
+              Political factors relate to how the government intervenes in the
+              economy. Specifically, political factors have areas including tax
+              policy, labour law, environmental law, trade restrictions,
+              tariffs, and political stability.
+            </p>
+          </div>
+          <ul class="list-group list-group-flush">
+            {% for p in politic_list %}   
+            <li class="list-group-item"> {{forloop.counter}}. {{ p.politics }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      {% comment %} Economics {% endcomment %}
+      <div class="col-md-3">
+        <div class="card" style="width: 25rem">
+          <div class="card-body">
+            <h5 class="card-title">Economics</h5>
+            <p class="card-text">
+              factors include economic growth, exchange rates, inflation rate, and interest rates. These factors can drastically effect how a business operates.
+            </p>
+          </div>
+          <ul class="list-group list-group-flush">
+            {% for e in economic_list %}
+            <li class="list-group-item">{{forloop.counter}}. {{ e.economics }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      {% comment %} Socials {% endcomment %}
+      <div class="col-md-3">
+        <div class="card" style="width: 25rem">
+          <div class="card-body">
+            <h5 class="card-title">Socials</h5>
+            <p class="card-text">
+              factors include the cultural aspects and health consciousness, population growth rate, age distribution, career attitudes and emphasis on safety. High trends in social factors affect the demand for a company's products and how that company operates.
+            </p>
+          </div>
+          <ul class="list-group list-group-flush">
+             {% for s in social_list %}
+              <li class="list-group-item">{{forloop.counter}}. {{ s.socials }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      {% comment %} Technologies {% endcomment %}
+      <div class="col-md-3">
+        <div class="card" style="width: 25rem">
+          <div class="card-body">
+            <h5 class="card-title">Technologies</h5>
+            <p class="card-text">
+              factors include technological aspects like R&D activity, automation, technology incentives and the rate of technological change. These can determine barriers to entry, minimum efficient production level and influence the outsourcing decisions.
+            </p>
+          </div>
+          <ul class="list-group list-group-flush">
+            {% for t in technology_list %}
+            <li class="list-group-item">{{forloop.counter}}. {{ t.technologies }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  {% comment %} SWOT {% endcomment %}
+    <div class="row" style="margin-top: 30px">
+      <h4 style="margin-left: 10px">
+        SWOT stands for Strengths, Weaknesses, Opportunities, and Threats. Strengths and weaknesses are internal to your company—things that you have some control over and can change.
+      </h4>
+
+      {% comment %} Strengths {% endcomment %}
+      <div class="col-md-3">
+        <div class="card" style="width: 25rem">
+          <div class="card-body">
+            <h5 class="card-title">Strengths</h5>
+            <p class="card-text">
+              Strengths are internal, positive attributes of your company. These are things that are within your control.
+            </p>
+          </div>
+          <ul class="list-group list-group-flush">
+            {% for s in strength_list %}   
+            <li class="list-group-item"> {{forloop.counter}}. {{ s.strengths }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      {% comment %} Weaknesses {% endcomment %}
+      <div class="col-md-3">
+        <div class="card" style="width: 25rem">
+          <div class="card-body">
+            <h5 class="card-title">Weaknesses</h5>
+            <p class="card-text">
+              Weaknesses are negative factors that detract from your strengths. These are things that you might need to improve on to be competitive.
+            </p>
+          </div>
+          <ul class="list-group list-group-flush">
+            {% for w in weakness_list %}
+            <li class="list-group-item">{{forloop.counter}}. {{ w.weaknesses }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      {% comment %} Opportunities {% endcomment %}
+      <div class="col-md-3">
+        <div class="card" style="width: 25rem">
+          <div class="card-body">
+            <h5 class="card-title">Opportunities</h5>
+            <p class="card-text">
+              Opportunities are external factors in your business environment that are likely to contribute to your success.
+            </p>
+          </div>
+          <ul class="list-group list-group-flush">
+             {% for o in opportunity_list %}
+              <li class="list-group-item">{{forloop.counter}}. {{ o.opportunities }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      {% comment %} Threads {% endcomment %}
+      <div class="col-md-3">
+        <div class="card" style="width: 25rem">
+          <div class="card-body">
+            <h5 class="card-title">Threads</h5>
+            <p class="card-text">
+              Threats are external factors that you have no control over. You may want to consider putting in place contingency plans for dealing with them if they occur.
+
+
+            </p>
+          </div>
+          <ul class="list-group list-group-flush">
+            {% for t in thread_list %}
+            <li class="list-group-item">{{forloop.counter}}. {{ t.threads }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+  </body>
+</html>

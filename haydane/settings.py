@@ -33,6 +33,7 @@ ALLOWED_HOSTS = ['0.0.0.0','localhost','192.168.10.9','767b3216f477.ngrok.io']
 INSTALLED_APPS = [
     'edc.apps.EdcConfig',
     'geo.apps.GeoConfig',
+    'PestAndSwot.apps.PestandswotConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
