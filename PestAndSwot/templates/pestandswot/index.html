@@ -17,6 +17,11 @@
       crossorigin="anonymous"
     ></script>
     <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js"
+      integrity="sha512-VMsZqo0ar06BMtg0tPsdgRADvl0kDHpTbugCBBrL55KmucH6hP9zWdLIWY//OTfMnzz6xWQRxQqsUFefwHuHyg=="
+      crossorigin="anonymous"
+    ></script>
+    <script
       src="https://code.jquery.com/jquery-3.6.0.min.js"
       integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
       crossorigin="anonymous"
@@ -24,16 +29,64 @@
   </head>
 
   <body style="padding: 20px">
+    {% comment %} <div class="row">
+      <div class="col-md-3">
+        <canvas id="myChart" width="400" height="400"></canvas>
+      </div>
+    </div> {% endcomment %}
+    <script>
+      $(document).ready(function () {
+        var ctx = document.getElementById("myChart").getContext("2d");
+        var myChart = new Chart(ctx, {
+          type: "bar",
+          data: {
+            labels: [{% for p in politic_list %}'{{p.politics}}',{% endfor %}],
+            datasets: [
+              {
+                label: "# of Votes",
+                data: [{% for p in politic_list %}'{{p.politics}}',{% endfor %}],
+                backgroundColor: [
+                  "rgba(255, 99, 132, 0.2)",
+                  "rgba(54, 162, 235, 0.2)",
+                  "rgba(255, 206, 86, 0.2)",
+                  "rgba(75, 192, 192, 0.2)",
+                  "rgba(153, 102, 255, 0.2)",
+                  "rgba(255, 159, 64, 0.2)",
+                ],
+                borderColor: [
+                  "rgba(255, 99, 132, 1)",
+                  "rgba(54, 162, 235, 1)",
+                  "rgba(255, 206, 86, 1)",
+                  "rgba(75, 192, 192, 1)",
+                  "rgba(153, 102, 255, 1)",
+                  "rgba(255, 159, 64, 1)",
+                ],
+                borderWidth: 1,
+              },
+            ],
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true,
+              },
+            },
+          },
+        });
+      });
+    </script>
+
+    <h5 style="margin-left: 10px">
+      PEST analysis describes a framework of macro-environmental factors used in
+      the environmental scanning component of strategic management.
+    </h5>
     {% comment %} PEST {% endcomment %}
     <div class="row" style="margin-top: 30px">
-      <h5 style="margin-left: 10px">
-        PEST analysis describes a framework of macro-environmental factors used in the environmental scanning component of strategic management.
-      </h5>
       {% comment %} Politic {% endcomment %}
       <div class="col-md-3">
-        <div class="card" >
+        <div class="card">
           <div class="card-body">
-            <h5 class="card-title">Polities</h5>
+            <h5 class="card-title">Politics</h5>
             <p class="card-text">
               Political factors relate to how the government intervenes in the
               economy. Specifically, political factors have areas including tax
@@ -49,11 +102,11 @@
             {% endfor %}
           </ul>
         </div>
-        <br>
+        <br />
       </div>
       {% comment %} Economics {% endcomment %}
       <div class="col-md-3">
-        <div class="card" >
+        <div class="card">
           <div class="card-body">
             <h5 class="card-title">Economics</h5>
             <p class="card-text">
@@ -70,11 +123,11 @@
             {% endfor %}
           </ul>
         </div>
-        <br>
+        <br />
       </div>
       {% comment %} Socials {% endcomment %}
       <div class="col-md-3">
-        <div class="card" >
+        <div class="card">
           <div class="card-body">
             <h5 class="card-title">Socials</h5>
             <p class="card-text">
@@ -92,11 +145,11 @@
             {% endfor %}
           </ul>
         </div>
-        <br>
+        <br />
       </div>
       {% comment %} Technologies {% endcomment %}
       <div class="col-md-3">
-        <div class="card" >
+        <div class="card">
           <div class="card-body">
             <h5 class="card-title">Technologies</h5>
             <p class="card-text">
@@ -115,17 +168,19 @@
           </ul>
         </div>
       </div>
-      <br>
+      <br />
     </div>
-
+    <br />
+    <h5 style="margin-left: 10px">
+      SWOT analysis is a strategic planning technique used to help a person or
+      organization identify strengths, weaknesses, opportunities, and threats
+      related to business competition or project planning.
+    </h5>
     {% comment %} SWOT {% endcomment %}
     <div class="row" style="margin-top: 30px">
-      <h5 style="margin-left: 10px">
-        SWOT analysis is a strategic planning technique used to help a person or organization identify strengths, weaknesses, opportunities, and threats related to business competition or project planning.
-      </h5>
       {% comment %} Strengths {% endcomment %}
       <div class="col-md-3">
-        <div class="card" >
+        <div class="card">
           <div class="card-body">
             <h5 class="card-title">Strengths</h5>
             <p class="card-text">
@@ -141,11 +196,11 @@
             {% endfor %}
           </ul>
         </div>
-        <br>
+        <br />
       </div>
       {% comment %} Weaknesses {% endcomment %}
       <div class="col-md-3">
-        <div class="card" >
+        <div class="card">
           <div class="card-body">
             <h5 class="card-title">Weaknesses</h5>
             <p class="card-text">
@@ -162,11 +217,11 @@
             {% endfor %}
           </ul>
         </div>
-        <br>
+        <br />
       </div>
       {% comment %} Opportunities {% endcomment %}
       <div class="col-md-3">
-        <div class="card" >
+        <div class="card">
           <div class="card-body">
             <h5 class="card-title">Opportunities</h5>
             <p class="card-text">
@@ -182,11 +237,11 @@
             {% endfor %}
           </ul>
         </div>
-        <br>
+        <br />
       </div>
       {% comment %} Threads {% endcomment %}
       <div class="col-md-3">
-        <div class="card" >
+        <div class="card">
           <div class="card-body">
             <h5 class="card-title">Threads</h5>
             <p class="card-text">
@@ -203,7 +258,7 @@
             {% endfor %}
           </ul>
         </div>
-        <br>
+        <br />
       </div>
     </div>
   </body>

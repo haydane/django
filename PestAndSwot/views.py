@@ -1,3 +1,4 @@
+from django.http.response import HttpResponse
 from django.shortcuts import render
 from .models import Politic, Economic, Social, Technology, Strength, Weakness, Opportunity, Thread
 
@@ -25,3 +26,6 @@ def index(request):
                 'thread_list':thread_list,
             }
     return render(request,'pestandswot/index.html',context)
+
+def hello(request):
+    return HttpResponse('<marquee behavior="scroll" direction="right">Hello World!</marquee>')
